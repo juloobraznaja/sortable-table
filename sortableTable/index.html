@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html></html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding: 100px;
+            height: 120vh;
+        }
+    </style>
+</head>
+<body>
+<script type="module" >
+    import {SortableTable} from './index.js';
+
+    let table = new SortableTable({
+        url: 'https://course-js.javascript.ru/api/rest/products?_embed=subcategory.category',
+        isDynamic: true,
+        fields: ['images', 'title', 'subcategory', 'quantity', 'price', 'discount'],
+        order: {
+            field: 'title',
+            direction: -1
+        }
+    })
+
+    document.body.append(table.elem);
+</script>
+</body>
+</html>
